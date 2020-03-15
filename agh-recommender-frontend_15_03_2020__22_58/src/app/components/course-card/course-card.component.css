@@ -1,0 +1,25 @@
+.course-card-style {
+  max-width: 325px;
+  margin: 15px;
+}
+
+.header-image {
+  background-image: url('../../../assets/images/electro_icon.jpg');
+  background-size: cover;
+}
+
+.course-short-desc {
+  font-style: italic;
+}
+
+.main-card-image {
+  height: 200px;
+}
+
+.rating-para {
+  margin: 0px;
+}
+
+.more-para {
+   margin: 0px;
+}
