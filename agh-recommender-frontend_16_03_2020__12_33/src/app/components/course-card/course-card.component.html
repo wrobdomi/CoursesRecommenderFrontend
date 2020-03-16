@@ -1,0 +1,22 @@
+<mat-card class="course-card-style">
+  <mat-card-header>
+    <div mat-card-avatar class="header-image"></div>
+    <mat-card-title>Podstawy mechaniki</mat-card-title>
+    <mat-card-subtitle>Elektrotechnika</mat-card-subtitle>
+  </mat-card-header>
+  <img class="main-card-image" mat-card-image src="https://source.unsplash.com/WLUHO9A_xik/50x50" alt="Course photo">
+  <mat-card-content>
+    <p class="course-short-desc">
+      Proste zagadnienia z zakresu mechaniki (statyka), podstaw wytrzymałości materiałów oraz podstaw konstrukcji maszyn.
+    </p>
+    <div fxLayout="row">
+      <p fxFlexAlign="baseline" class="rating-para">
+        <bar-rating [(rate)]="rate" [max]="5"></bar-rating>
+      </p>
+      <p fxFlexAlign="baseline" fxFlex fxLayout fxLayoutAlign="flex-end" class="more-para">
+        <button mat-button >WIĘCEJ...</button>
+      </p>
+    </div>
+  </mat-card-content>
+
+</mat-card>

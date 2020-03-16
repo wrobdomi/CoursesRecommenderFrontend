@@ -1,0 +1,31 @@
+<mat-sidenav-container>
+
+  <mat-sidenav #sidenav mode="side" opened class="sidenav-style"
+                [fixedInViewport]="false" [fixedTopGap]=0
+                [fixedBottomGap]=0 fxHide.lt-md>
+    <mat-action-list>
+      <button mat-list-item (click)="onSetCategory('rekom')"> <mat-icon>chevron_right</mat-icon> Rekomendowane </button>
+      <button mat-list-item (click)="onSetCategory('air')"> <mat-icon>chevron_right</mat-icon> Automatyka i Robotyka </button>
+      <button mat-list-item (click)="onSetCategory('elektro')"> <mat-icon>chevron_right</mat-icon> Elektrotechnika </button>
+      <button mat-list-item (click)="onSetCategory('inf')"> <mat-icon>chevron_right</mat-icon> Informatyka </button>
+      <button mat-list-item (click)="onSetCategory('biomed')"> <mat-icon>chevron_right</mat-icon> Inżynieria biomedyczna </button>
+      <button mat-list-item (click)="onSetCategory('mtm')"> <mat-icon>chevron_right</mat-icon> Mikroelektronika </button>
+    </mat-action-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content fxLayout="column">
+
+    <div fxFlexAlign="center">
+      <h1>Podstawy mechaniki</h1>
+    </div>
+    <mat-divider></mat-divider>
+
+    <div fxLayout="row wrap">
+
+    </div>
+
+
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
+
