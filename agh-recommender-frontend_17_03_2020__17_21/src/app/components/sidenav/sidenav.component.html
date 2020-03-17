@@ -1,0 +1,34 @@
+<mat-sidenav-container>
+
+  <mat-sidenav #sidenav mode="side" opened class="sidenav-style"
+                [fixedInViewport]="false" [fixedTopGap]=0
+                [fixedBottomGap]=0 fxHide.lt-md>
+    <mat-action-list>
+      <button mat-list-item> <mat-icon>chevron_right</mat-icon> Rekomendowane </button>
+      <button mat-list-item (click)="onSetCategory('Automatyka i Robotyka')"> <mat-icon>chevron_right</mat-icon> Automatyka i Robotyka </button>
+      <button mat-list-item (click)="onSetCategory('Elektrotechnika')"> <mat-icon>chevron_right</mat-icon> Elektrotechnika </button>
+      <button mat-list-item (click)="onSetCategory('Informatyka')"> <mat-icon>chevron_right</mat-icon> Informatyka </button>
+      <button mat-list-item (click)="onSetCategory('Inżynieria biomedyczna')"> <mat-icon>chevron_right</mat-icon> Inżynieria biomedyczna </button>
+      <button mat-list-item (click)="onSetCategory('Mikroelektronika')"> <mat-icon>chevron_right</mat-icon> Mikroelektronika </button>
+    </mat-action-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content fxLayout="column">
+
+    <div fxFlexAlign="center">
+      <h1>{{ chosenCategory }}</h1>
+    </div>
+    <mat-divider></mat-divider>
+
+    <div fxLayout="row wrap">
+
+      <ng-container *ngFor="let c of coursesToDisplay">
+        <app-course-card [course]="c" [minImageUrl]="fullMinUrl"></app-course-card>
+      </ng-container>
+    </div>
+
+
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
+
