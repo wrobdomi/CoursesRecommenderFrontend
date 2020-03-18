@@ -1,8 +1,0 @@
-.sidenav-style {
-  width: 250px;
-  background: rgba(255, 0, 0, 0.5);
-}
-
-mat-sidenav-container, mat-sidenav-content, mat-sidenav {
-  height: 100%;
-}
