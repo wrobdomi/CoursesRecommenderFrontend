@@ -1,0 +1,41 @@
+.sidenav-style {
+  width: 250px;
+  /* background: rgba(255, 0, 0, 0.5); */
+}
+
+/* mat-sidenav-container, mat-sidenav-content, mat-sidenav {
+  height: 100%;
+} */
+
+mat-sidenav {
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+   /* position: fixed; */
+}
+
+mat-action-list {
+  font-weight: bold;
+  position: fixed;
+}
+
+mat-divider {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+h1 {
+  margin-left: 20px;
+}
+
+mat-spinner {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.loading-balancer-bottom {
+  padding-bottom: 40px;
+}
+
+.loading-balancer-top {
+  padding-top: 40px;
+}
