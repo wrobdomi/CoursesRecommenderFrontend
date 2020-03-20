@@ -19,6 +19,8 @@ import { RecommendedCoursesComponent } from './components/recommended-courses/re
 import { CourseDetailsComponent } from './components/course-details/course-details.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptorService } from './auth/auth-interceptor.service';
+import { NewUserDialogComponent } from './components/new-user-dialog/new-user-dialog.component';
+import { NewUserCourseCardComponent } from './components/new-user-course-card/new-user-course-card.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { AuthInterceptorService } from './auth/auth-interceptor.service';
     SidenavComponent,
     CourseCardComponent,
     RecommendedCoursesComponent,
-    CourseDetailsComponent
+    CourseDetailsComponent,
+    NewUserDialogComponent,
+    NewUserCourseCardComponent
   ],
   imports: [
     BrowserModule,
@@ -42,6 +46,11 @@ import { AuthInterceptorService } from './auth/auth-interceptor.service';
     BarRatingModule,
     HttpClientModule
   ],
+
+  entryComponents: [
+    NewUserDialogComponent
+  ],
+
   providers: [
     // {
     //   provide: HTTP_INTERCEPTORS,

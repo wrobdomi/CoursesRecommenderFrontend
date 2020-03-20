@@ -16,13 +16,14 @@
   <mat-sidenav-content>
 
     <div fxLayout="column">
-      <h1 *ngIf="!isLoadingRecent">Najnowsze</h1>
+      <h1>Najnowsze</h1>
 
       <mat-divider></mat-divider>
 
-      <div fxLayout="row wrap">
+      <div fxLayout="row wrap" [ngClass]="{'loading-balancer-top': isLoadingRecent, 'loading-balancer-bottom': isLoadingRecent}">
 
-        <mat-spinner *ngIf="isLoadingRecent"> </mat-spinner>
+        <mat-spinner *ngIf="isLoadingRecent"></mat-spinner>
+
         <ng-container *ngFor="let c of recentCourses">
           <app-course-card [course]="c"></app-course-card>
         </ng-container>
@@ -31,11 +32,12 @@
     </div>
 
     <div fxLayout="column">
-      <h1 *ngIf="!isLoadingTop">Najwyżej oceniane</h1>
+      <h1>Najwyżej oceniane</h1>
       <mat-divider></mat-divider>
-    <div fxLayout="row wrap">
+    <div fxLayout="row wrap" [ngClass]="{'loading-balancer-top': isLoadingTop, 'loading-balancer-bottom': isLoadingTop}">
 
-        <mat-spinner *ngIf="isLoadingTop"> </mat-spinner>
+        <mat-spinner *ngIf="isLoadingTop"></mat-spinner>
+
         <ng-container *ngFor="let c of topRatedCourses">
           <app-course-card [course]="c"></app-course-card>
         </ng-container>
@@ -45,11 +47,12 @@
 
 
     <div fxLayout="column">
-      <h1 *ngIf="!isLoadingRecommended">Wybrane dla Ciebie</h1>
+      <h1>Wybrane dla Ciebie</h1>
       <mat-divider></mat-divider>
-    <div fxLayout="row wrap">
+    <div fxLayout="row wrap" [ngClass]="{'loading-balancer-top': isLoadingRecommended, 'loading-balancer-bottom': isLoadingRecommended}">
 
         <mat-spinner *ngIf="isLoadingRecommended"> </mat-spinner>
+
         <ng-container *ngFor="let c of recommondedForYou">
           <app-course-card [course]="c"></app-course-card>
         </ng-container>
@@ -60,11 +63,12 @@
 
 
     <div fxLayout="column">
-      <h1 *ngIf="!isLoadingBeacuse">Ponieważ spodobał Ci się kurs {{ likedCourse }} </h1>
+      <h1>Ponieważ spodobał Ci się kurs {{ likedCourse }} </h1>
       <mat-divider></mat-divider>
-    <div fxLayout="row wrap">
+    <div fxLayout="row wrap" [ngClass]="{'loading-balancer-top': isLoadingBeacuse, 'loading-balancer-bottom': isLoadingBeacuse}">
 
         <mat-spinner *ngIf="isLoadingBeacuse"> </mat-spinner>
+
         <ng-container *ngFor="let c of becauseYouLiked">
           <app-course-card [course]="c"></app-course-card>
         </ng-container>

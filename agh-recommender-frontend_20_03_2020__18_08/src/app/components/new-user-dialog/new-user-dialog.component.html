@@ -1,0 +1,10 @@
+<div fxLayout="column" fxLayoutAlign="center center">
+  <h2 mat-dialog-title>Witaj !</h2>
+  <p style="font-style: italic;">Oceń poniższe 5 kursów aby udoskonalić Twoje rekomendacje.</p>
+  <div mat-dialog-content>
+    <app-new-user-course-card [course]="actualCourse" (ratingReceived)="onRatingReceived($event)"></app-new-user-course-card>
+  </div>
+</div>
+
+<!-- style="overflow: visible;" -->
+<!-- fxLayout="column" fxLayoutAlign="center center" -->
