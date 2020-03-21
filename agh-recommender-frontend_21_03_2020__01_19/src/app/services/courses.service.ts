@@ -31,7 +31,7 @@ export class CoursesService {
         take(1),
         exhaustMap(user => {
            return this.http.get<CourseModel[]>(
-             'http://localhost:8080/courses',
+             'http://localhost:8080/courses?sortBy=publicationDate',
              {
               headers: new HttpHeaders({
                 'Authorization': user.authToken,

@@ -10,11 +10,12 @@
       {{ course.description }}
     </p>
     <div fxLayout="row">
+      <p fxFlexAlign="baseline" style="margin-right: 5px;"> ({{course.averageRating | number:'1.1-2'}})</p>
       <p fxFlexAlign="baseline" class="rating-para">
         <bar-rating [(rate)]="course.averageRating" [max]="5" [readOnly]="true"></bar-rating>
       </p>
       <p fxFlexAlign="baseline" fxFlex fxLayout fxLayoutAlign="flex-end" class="more-para">
-        <button mat-button >WIĘCEJ...</button>
+        <button mat-button (click)="onCoureDetailsClicked()">WIĘCEJ...</button>
       </p>
     </div>
   </mat-card-content>

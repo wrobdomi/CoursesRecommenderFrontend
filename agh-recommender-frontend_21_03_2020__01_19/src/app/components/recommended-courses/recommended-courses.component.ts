@@ -7,6 +7,8 @@ import { Subscription } from 'rxjs';
 import { AuthService } from '../../auth/auth.service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { NewUserDialogComponent } from '../new-user-dialog/new-user-dialog.component';
+import { RecommendationsService } from 'src/app/services/recommendations.service';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-recommended-courses',
@@ -36,7 +38,9 @@ export class RecommendedCoursesComponent implements OnInit, OnDestroy {
     private router: Router,
     private authService: AuthService,
     private ratingsService: RatingsService,
-    public newUserDialog: MatDialog) { }
+    private recommendationService: RecommendationsService,
+    public newUserDialog: MatDialog,
+    public snackBarNewUser: MatSnackBar) { }
 
   ngOnInit() {
 
@@ -54,19 +58,38 @@ export class RecommendedCoursesComponent implements OnInit, OnDestroy {
           console.log(res);
 
           if (!this.isUserNew) {
+
             console.log('User is not new - showing recommendations !');
-            this.recentCourses = this.courses.slice(0, 3);
+
+            this.recentCourses = this.recommendationService.getNewestCourses(this.courses);
             this.isLoadingRecent = false;
             console.log(this.recentCourses);
 
-            this.topRatedCourses = this.courses.slice(3, 6);
-            this.isLoadingTop = false;
+            // this.topRatedCourses = this.courses.slice(3, 6);
+            this.recommendationService.getNonPersonalizedRecommendations().subscribe(topRated => {
+              this.topRatedCourses = topRated;
+              console.log('Top rated courses are: ');
+              console.log(topRated);
+              this.isLoadingTop = false;
+            });
 
-            this.recommondedForYou = this.courses.slice(6, 9);
-            this.isLoadingRecommended = false;
+            // this.recommondedForYou = this.courses.slice(6, 9);
+            this.recommendationService.getCollaborativeRecommendation().subscribe(forYou => {
+              this.recommondedForYou = forYou;
+              console.log('Recommended for you courses are: ');
+              console.log(forYou);
+              this.isLoadingRecommended = false;
+            });
 
-            this.becauseYouLiked = this.courses.slice(9, 12);
-            this.isLoadingBeacuse = false;
+             // this.becauseYouLiked = this.courses.slice(9, 12);
+            this.recommendationService.getContentRecommendation().subscribe(contentForYou => {
+              this.becauseYouLiked = contentForYou.courseDtoList;
+              this.likedCourse = contentForYou.courseName;
+              console.log('Recommended based on content: ');
+              console.log(contentForYou);
+              this.isLoadingBeacuse = false;
+            });
+
           }
 
           if (this.isUserNew) {
@@ -100,8 +123,38 @@ export class RecommendedCoursesComponent implements OnInit, OnDestroy {
       console.log('Dialog has been closed ! Result is ');
       console.log(result);
       this.ratingsService.saveRatings(result).subscribe(userRatings => {
+
         console.log('Results from ratings save: ');
         console.log(userRatings);
+        this.snackBarNewUser.open('Twoja ocena została zapisana', 'Dziękuje', {
+          duration: 4000
+        });
+
+        this.recentCourses = this.recommendationService.getNewestCourses(this.courses);
+        this.isLoadingRecent = false;
+
+        this.recommendationService.getNonPersonalizedRecommendations().subscribe(topRated => {
+          this.topRatedCourses = topRated;
+          this.isLoadingTop = false;
+          console.log('Top rated courses are: ');
+          console.log(topRated);
+        });
+
+        this.recommendationService.getCollaborativeRecommendation().subscribe(forYou => {
+          this.recommondedForYou = forYou;
+          console.log('Recommended for you courses are: ');
+          console.log(forYou);
+          this.isLoadingRecommended = false;
+        });
+
+        this.recommendationService.getContentRecommendation().subscribe(contentForYou => {
+          this.becauseYouLiked = contentForYou.courseDtoList;
+          this.likedCourse = contentForYou.courseName;
+          console.log('Recommended based on content: ');
+          console.log(contentForYou);
+          this.isLoadingBeacuse = false;
+        });
+
       });
     });
   }
@@ -154,6 +207,8 @@ export class RecommendedCoursesComponent implements OnInit, OnDestroy {
 
     return coursesToRate;
   }
+
+
 
 
 

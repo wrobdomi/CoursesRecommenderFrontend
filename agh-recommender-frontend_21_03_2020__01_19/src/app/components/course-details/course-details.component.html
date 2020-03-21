@@ -1,0 +1,111 @@
+<mat-sidenav-container>
+
+  <mat-sidenav #sidenav mode="side" opened class="sidenav-style"
+                [fixedInViewport]="false" [fixedTopGap]=0
+                [fixedBottomGap]=0 fxHide.lt-md>
+    <mat-action-list>
+      <button mat-list-item (click)="onRecommendedChosen()"> <mat-icon>chevron_right</mat-icon> Rekomendowane </button>
+      <button mat-list-item (click)="onSetCategory('Automatyka i Robotyka')"> <mat-icon>chevron_right</mat-icon> Automatyka i Robotyka </button>
+      <button mat-list-item (click)="onSetCategory('Elektrotechnika')"> <mat-icon>chevron_right</mat-icon> Elektrotechnika </button>
+      <button mat-list-item (click)="onSetCategory('Informatyka')"> <mat-icon>chevron_right</mat-icon> Informatyka </button>
+      <button mat-list-item (click)="onSetCategory('Inżynieria biomedyczna')"> <mat-icon>chevron_right</mat-icon> Inżynieria biomedyczna </button>
+      <button mat-list-item (click)="onSetCategory('Mikroelektronika')"> <mat-icon>chevron_right</mat-icon> Mikroelektronika </button>
+    </mat-action-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content fxLayout="column">
+
+    <div fxFlexAlign="center">
+      <h1>{{ courseToDisplay.name }}</h1>
+    </div>
+    <mat-divider></mat-divider>
+    <div fxFlexAlign="center">
+      <h1>{{ courseToDisplay.category }}</h1>
+    </div>
+
+
+    <mat-divider></mat-divider>
+
+    <mat-accordion>
+
+      <mat-expansion-panel>
+
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <mat-icon aria-hidden="false" aria-label="Example home icon">emoji_people</mat-icon> Prowadzący
+          </mat-panel-title>
+          <mat-panel-description>
+            Zobacz profesjonalną kadrę naukową
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <mat-list role="list">
+          <mat-list-item role="listitem" *ngFor="let l of lecturers">{{l.employee_title}} {{l.name}} {{l.surname}}</mat-list-item>
+        </mat-list>
+
+
+      </mat-expansion-panel>
+
+      <mat-expansion-panel>
+
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+           <mat-icon aria-hidden="false" aria-label="Example home icon">class</mat-icon>  Wykład
+          </mat-panel-title>
+          <mat-panel-description>
+            Plan Wykładów
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <p>{{ lecturePlan }}</p>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel>
+
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+           <mat-icon aria-hidden="false" aria-label="Example home icon">laptop_chromebook</mat-icon> Laboratorium
+          </mat-panel-title>
+          <mat-panel-description>
+            Plan Laboratorium
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <p> {{ laboratoryPlan }}</p>
+      </mat-expansion-panel>
+
+
+      <mat-expansion-panel>
+
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+           <mat-icon aria-hidden="false" aria-label="Example home icon">check</mat-icon> Wymagania wstępne
+          </mat-panel-title>
+          <mat-panel-description>
+            Co musisz wiedzieć aby wziąć udział
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <p>{{ initialRequirements }}</p>
+      </mat-expansion-panel>
+
+
+      <mat-expansion-panel>
+
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+           <mat-icon aria-hidden="false" aria-label="Example home icon">grade</mat-icon> Twoja opinia
+          </mat-panel-title>
+          <mat-panel-description>
+            Oceń teń kurs i ulepsz swoje rekomendacje !
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <bar-rating (rateChange)="onCourseRating($event)" [max]="5" [readOnly]="false" ></bar-rating>
+      </mat-expansion-panel>
+
+    </mat-accordion>
+
+  </mat-sidenav-content>
+
+</mat-sidenav-container>

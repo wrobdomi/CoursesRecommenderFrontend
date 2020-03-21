@@ -31,4 +31,27 @@ export class RatingsService {
     );
   }
 
+
+  saveSingleRating(rating: RatingModel) {
+    return this.authService.user.pipe(
+        take(1),
+        exhaustMap(user => {
+           rating.userId = user.userId;
+           const ratings = [rating];
+           return this.http.post<RatingModel[]>(
+             'http://localhost:8080/ratings',
+              {
+                ratings
+              },
+              {
+              headers: new HttpHeaders({
+                'Authorization': user.authToken,
+                'Accept': 'application/json'
+              })
+            }
+          );
+      })
+    );
+  }
+
 }

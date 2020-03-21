@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CourseModel } from 'src/app/models/course.model';
+import { Router } from '@angular/router';
+import { CourseDetailsService } from 'src/app/services/course-details.service';
 
 @Component({
   selector: 'app-course-card',
@@ -23,10 +25,17 @@ export class CourseCardComponent implements OnInit {
   fullMinUrl = '';
 
 
-  constructor() { }
+  constructor(private router: Router, private courseDetailsService: CourseDetailsService) { }
 
   ngOnInit() {
     this.minImageUrl = this.baseMinImageUrl + this.minImageUrlMap.get(this.course.category);
+  }
+
+  onCoureDetailsClicked() {
+    console.log('Course details clicked !');
+    this.courseDetailsService.setCourseModel(this.course);
+    const route = 'courses/' + this.course.courseId;
+    this.router.navigate([route]);
   }
 
 }

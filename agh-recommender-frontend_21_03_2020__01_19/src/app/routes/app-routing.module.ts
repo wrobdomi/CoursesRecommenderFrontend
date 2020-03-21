@@ -15,6 +15,7 @@ const routes: Routes = [
   {path: 'signup', component: SignupComponent},
   {path: 'login', component: LoginComponent},
   {path: 'courses', component: SidenavComponent, canActivate: [AuthGuard]},
+  {path: 'courses/:id', component: CourseDetailsComponent, canActivate: [AuthGuard]},
   {path: 'recommendations', component: RecommendedCoursesComponent, canActivate: [AuthGuard] },
   {path: 'details', component: CourseDetailsComponent, canActivate: [AuthGuard]}
 ];
