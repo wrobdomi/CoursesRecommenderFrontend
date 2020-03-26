@@ -1,7 +1,7 @@
 # CoursesRecommenderFrontend
 Client side for CoursesRecommender.
 
-# Screen views
+# Views
 ## Home page 
 ![f_01](https://user-images.githubusercontent.com/37666186/77700682-f72ded00-6fb4-11ea-92cb-d74741ae89a1.PNG)
 
