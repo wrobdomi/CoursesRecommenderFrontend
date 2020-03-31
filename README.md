@@ -18,11 +18,11 @@ CoursesRecommender is a web application which offers users courses from AGH UST 
 + rxjs https://rxjs.dev/guide/overview
 
 # Recommendatins algorithms 
-## Damped-mean
++ ## Damped-mean
 
 ![f_05](https://user-images.githubusercontent.com/37666186/78051063-75a3d980-737d-11ea-9b7d-c2fe8ab2fc25.PNG)
 
-## Collaborative-based filtering
++ ## Collaborative-based filtering
 
 https://en.wikipedia.org/wiki/Collaborative_filtering
 
@@ -30,7 +30,7 @@ https://en.wikipedia.org/wiki/Collaborative_filtering
 
 ![f_06](https://user-images.githubusercontent.com/37666186/78051091-7ccae780-737d-11ea-8b7d-f08c53f1cf2c.PNG)
 
-## Content-based filtering
++ ## Content-based filtering
 ![f_09](https://user-images.githubusercontent.com/37666186/78051380-e1864200-737d-11ea-8fc6-430743d81b61.PNG)
 
 ![f_07](https://user-images.githubusercontent.com/37666186/78051115-83f1f580-737d-11ea-8bae-652bc520d2a2.PNG)
