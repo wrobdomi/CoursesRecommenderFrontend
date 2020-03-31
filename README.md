@@ -17,7 +17,7 @@ CoursesRecommender is a web application which offers users courses from AGH UST 
 + Angular flex-layout https://github.com/angular/flex-layout
 + rxjs https://rxjs.dev/guide/overview
 
-# Recommendatins algorithms 
+# Recommendations algorithms 
 + ## Damped-mean
 
 ![f_05](https://user-images.githubusercontent.com/37666186/78051063-75a3d980-737d-11ea-9b7d-c2fe8ab2fc25.PNG)
